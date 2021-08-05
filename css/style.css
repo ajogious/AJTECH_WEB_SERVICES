@@ -1,0 +1,377 @@
+:root{
+   --light: #fff;
+   --dark: #000;
+   --gray: #ccc;
+   --secondary: #414144;
+   --tertiary: #b52c02;
+}
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+body{
+   line-height: 1.6;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.grid-container{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 0 5px;
+   grid-template-areas: 
+   "header header header"
+   "main main main"
+   "section section section"
+   "aside aside aside"
+   "content content content"
+   "article article article"
+   "footer footer footer";
+}
+/* global */
+.container{
+   width: 80%;
+   margin: auto;
+}
+/* header */
+header{
+   grid-area: header;
+   background-color: var(--secondary);
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   border-bottom: 3px solid var(--tertiary);
+}
+.header{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+#img1{
+   width: 80px;
+   border-radius: 45%;
+}
+.header .logo-section{
+   padding: 5px 5px;
+}
+.header nav ul li{
+   display: inline-block;
+   padding-right: 20px;
+   font-size: 1.2rem;
+}
+.header nav ul li a{
+   text-decoration: none;
+   color: var(--light);
+   font-weight: bold;
+   text-transform: uppercase;
+}
+.header nav ul li .active{
+   color: var(--tertiary);
+}
+.header nav ul li a:hover{
+   color: var(--gray);
+}
+/* end of header */
+/* main */
+main{
+   grid-area: main;
+   align-items: center;background-image: url(../images/cover.jpg);
+   background-position: center;
+   background-size: cover;
+   height: 80vh;
+}
+main .showcase{
+   text-align: center;
+   color: var(--light);
+}
+main .showcase h1{
+   margin-top: 180px;
+   font-size: 3.8rem;
+   text-transform: capitalize;
+}
+main .showcase h2{
+   font-size: 2.2rem;
+   margin-bottom: 5px;
+}
+main .showcase p{
+   font-size: 1.1rem;
+}
+/* end of main */
+
+/* section */
+section{
+   grid-area: section;
+   background-color: var(--secondary);
+   padding-top: 25px;
+   padding-bottom: 25px;
+}
+section .section{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+section .section h1{
+   color: var(--light);
+   text-transform: capitalize;
+}
+section .section form input[type="text"], content .services-form form input, [type="text"],
+content .services-form form input[type="email"],
+content .services-form form textarea{
+   width: 280px;
+   height: 35px;
+   outline: none;
+}
+section .section form input[type="button"], content .services-form form input[type="button"]{
+   width: 100px;
+   height: 35px;
+   color: var(--light);
+   background-color: var(--tertiary);
+   border: none;
+   cursor: pointer;
+}
+/* end of section */
+
+/* article */
+article {
+   grid-area: article;
+}
+article .img2 img{
+   width: 150px;
+   margin-top: 50px;
+}
+article .article{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+}
+article .article h1{
+   margin: 20px 0;
+}
+
+aside{
+   grid-area: aside;
+   margin-top: 20px;
+}
+.about-section{
+   display: flex;
+   justify-content: space-between;
+}
+aside .about-section .about{
+   width: 67%;
+}
+aside .about-section .what-we-do{
+   width: 30%;
+   align-self: baseline;
+}
+aside .about-section #about{
+   background-color: var(--secondary);
+   color: var(--light);
+   padding: 20px;
+}
+
+/* services */
+content{
+   grid-area: content;
+}
+content .what-we-offer{
+   margin-top: 30px;
+   display: flex;
+   justify-content: space-between;
+}
+content .what-we-offer ul li{
+   background-color: var(--gray);
+   padding: 20px 10px;
+   margin-top: 5px;
+}
+content .what-we-offer .serives-head{
+   width: 67%;
+}
+content .what-we-offer .services-form{
+   width: 30%;
+   background-color: var(--secondary);
+   align-self: baseline;
+}
+content .what-we-offer form{
+   margin-top: 30px;
+   padding: 20px;
+   color: var(--light);
+   width: 100%;
+}
+/* end of article */
+
+/* media query for tablet */
+@media (max-width: 960px){
+   .grid-container{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+      "header header"
+      "main main"
+      "section section"
+      "aside aside"
+      "content content"
+      "article article"
+      "footer footer";
+   }
+   main{
+      height: 80vh;
+   }
+   main .showcase h1{
+      margin-top: 170px;
+      font-size: 3.1rem;
+      text-transform: capitalize;
+   }
+   section .section{
+      justify-content: space-between;
+      align-items: center;
+   }
+   section .section h1{
+      font-size: 1.1rem;
+   }
+   section .section form input[type="text"]{
+      display: block;
+      margin-bottom: 3px;
+   }
+   section .section form input[type="button"]{
+      width: 100%
+   }
+   article .article{
+      flex-direction: column;
+      text-align: center;
+   }
+   aside{
+      margin-top: 20px;
+   }
+   .about-section{
+      flex-direction: column;
+   }
+   aside .about-section .about{
+      width: 100%;
+   }
+   aside .about-section .what-we-do{
+      margin-top: 10px;
+      width: 100%;
+      align-self: baseline;
+   }
+   aside .about-section #about{
+      background-color: var(--secondary);
+      color: var(--light);
+      padding: 20px;
+   }
+   content .what-we-offer{
+      margin-top: 30px;
+      flex-direction: column;
+   }
+   content .what-we-offer ul li{
+      background-color: var(--gray);
+      padding: 20px 10px;
+      margin-top: 5px;
+   }
+   content .what-we-offer .serives-head{
+      width: 100%;
+   }
+   content .what-we-offer .services-form{
+      margin-top: 10px;
+      width: 100%;
+      height: 350px;
+      background-color: var(--secondary);
+      align-self: baseline;
+      justify-self: center;
+
+   }
+   content .what-we-offer form{
+      margin-top: 30px;
+      padding: 20px;
+      color: var(--light);
+   }
+   content .what-we-offer form input[type="text"],
+   content .what-we-offer form input[type="email"],
+   content .what-we-offer form textarea,
+   content .what-we-offer form input[type="button"]{
+      width: 100%;
+   }
+}
+/* media query for mobile*/
+@media (max-width: 720px){
+   .grid-container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      "header"
+      "main"
+      "section"
+      "aside"
+      "content"
+      "article"
+      "footer";
+   }
+   .header{
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+   }
+   main{
+      height: 100vh;
+   }
+   main .showcase h1{
+      margin-top: 230px;
+      font-size: 3rem;
+      text-transform: capitalize;
+   }
+   main .showcase h2{
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+   }
+   main .showcase p{
+      font-size: 1rem;
+   }
+   section .section{
+      flex-direction: column;
+      align-items: center;
+   }
+   section .section h1{
+      font-size: 1.3rem;
+   }
+   section .section form input[type="text"]{
+      display: block;
+      margin-bottom: 3px;
+   }
+   section .section form input[type="button"]{
+      width: 100%
+   }
+   article .article{
+      flex-direction: column;
+      text-align: center;
+   }
+   aside{
+      grid-area: aside;
+      margin-top: 20px;
+   }
+   .about-section{
+      flex-direction: column;
+   }
+   aside .about-section .about{
+      width: 100%;
+   }
+   aside .about-section .what-we-do{
+      margin-top: 10px;
+      width: 100%;
+      align-self: baseline;
+   }
+   aside .about-section #about{
+      background-color: var(--secondary);
+      color: var(--light);
+      padding: 20px;
+   }
+}
+/* footer */
+footer{
+   grid-area: footer;
+   text-align: center;
+   margin: 30px 0 100px 0;
+   padding: 40px 0;
+   color: var(--light);
+   background-color: var(--tertiary);
+}
